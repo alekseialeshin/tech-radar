@@ -19,7 +19,7 @@
 
 const CONFIG = {
   title: "YIM Tech Radar",
-  date: "2025.01",
+  date: "2025.11",
   
   // To add a technology, copy an entry and modify:
   // quadrant: 0=Languages/Frameworks, 1=Infrastructure, 2=Datastores, 3=Data Management
@@ -28,49 +28,29 @@ const CONFIG = {
   entries: [
     // Languages & Frameworks (quadrant: 0)
     { quadrant: 0, ring: 0, label: "JavaScript", active: true, moved: 0 },
-    { quadrant: 0, ring: 0, label: "TypeScript", active: true, moved: 1 },
+    { quadrant: 0, ring: 2, label: "C++", active: true, moved: 0 },
     { quadrant: 0, ring: 0, label: "Python", active: true, moved: 0 },
-    { quadrant: 0, ring: 1, label: "React", active: true, moved: 0 },
-    { quadrant: 0, ring: 1, label: "Vue.js", active: true, moved: 0 },
-    { quadrant: 0, ring: 1, label: "Next.js", active: true, moved: 1 },
-    { quadrant: 0, ring: 2, label: "Svelte", active: true, moved: 2 },
-    { quadrant: 0, ring: 2, label: "Rust", active: true, moved: 0 },
     { quadrant: 0, ring: 3, label: "PHP", active: true, moved: -1 },
-    { quadrant: 0, ring: 3, label: "jQuery", active: true, moved: 0 },
     
     // Infrastructure (quadrant: 1)
-    { quadrant: 1, ring: 0, label: "Docker", active: true, moved: 0 },
-    { quadrant: 1, ring: 0, label: "Kubernetes", active: true, moved: 0 },
-    { quadrant: 1, ring: 0, label: "AWS", active: true, moved: 0 },
-    { quadrant: 1, ring: 1, label: "GitHub Actions", active: true, moved: 1 },
-    { quadrant: 1, ring: 1, label: "Terraform", active: true, moved: 0 },
-    { quadrant: 1, ring: 1, label: "Vercel", active: true, moved: 0 },
-    { quadrant: 1, ring: 2, label: "CloudFlare Workers", active: true, moved: 2 },
-    { quadrant: 1, ring: 2, label: "Deno Deploy", active: true, moved: 2 },
-    { quadrant: 1, ring: 3, label: "Apache Server", active: true, moved: -1 },
-    { quadrant: 1, ring: 3, label: "FTP", active: true, moved: 0 },
+    { quadrant: 1, ring: 0, label: "VS Code", active: true, moved: 0 },
+    { quadrant: 1, ring: 0, label: "MIRO", active: true, moved: 0 },
+    { quadrant: 1, ring: 0, label: "Slack", active: true, moved: 0 },
+    { quadrant: 1, ring: 0, label: "GitHub", active: true, moved: 0 },
+    { quadrant: 1, ring: 0, label: "Adobe Audition", active: true, moved: 0 },
+    { quadrant: 1, ring: 1, label: "Izotope RX 11", active: true, moved: 2 },
+    { quadrant: 1, ring: 2, label: "Librosa", active: true, moved: -1 },
+    { quadrant: 1, ring: 2, label: "JUCE", active: true, moved: 2 },
+    { quadrant: 1, ring: 3, label: "Goggle Colab", active: true, moved: -1 },
     
     // Datastores (quadrant: 2)
-    { quadrant: 2, ring: 0, label: "PostgreSQL", active: true, moved: 0 },
-    { quadrant: 2, ring: 0, label: "Redis", active: true, moved: 0 },
-    { quadrant: 2, ring: 1, label: "MongoDB", active: true, moved: 0 },
-    { quadrant: 2, ring: 1, label: "Elasticsearch", active: true, moved: 0 },
-    { quadrant: 2, ring: 1, label: "DynamoDB", active: true, moved: 0 },
-    { quadrant: 2, ring: 2, label: "Supabase", active: true, moved: 2 },
-    { quadrant: 2, ring: 2, label: "PlanetScale", active: true, moved: 1 },
-    { quadrant: 2, ring: 3, label: "MySQL", active: true, moved: 0 },
-    { quadrant: 2, ring: 3, label: "Oracle DB", active: true, moved: 0 },
+    { quadrant: 2, ring: 3, label: "Render", active: true, moved: -1 },
+
     
-    // Data Management (quadrant: 3)
-    { quadrant: 3, ring: 0, label: "Apache Airflow", active: true, moved: 0 },
-    { quadrant: 3, ring: 0, label: "Spark", active: true, moved: 0 },
-    { quadrant: 3, ring: 1, label: "Kafka", active: true, moved: 0 },
-    { quadrant: 3, ring: 1, label: "dbt", active: true, moved: 1 },
-    { quadrant: 3, ring: 1, label: "Apache Flink", active: true, moved: 0 },
-    { quadrant: 3, ring: 2, label: "Snowflake", active: true, moved: 2 },
-    { quadrant: 3, ring: 2, label: "BigQuery", active: true, moved: 0 },
-    { quadrant: 3, ring: 3, label: "Hadoop", active: true, moved: -1 },
-    { quadrant: 3, ring: 3, label: "MapReduce", active: true, moved: 0 }
+    // ML (quadrant: 3)  
+   { quadrant: 3, ring: 2, label: "NEO ML Engineer", active: true, moved: 2 },
+   { quadrant: 3, ring: 1, label: "Aurigin API", active: true, moved: 2 },
+   { quadrant: 3, ring: 3, label: "Reality Defender API", active: true, moved: -1 },
   ]
 };
 
@@ -85,7 +65,7 @@ radar_visualization({
     { name: "Languages & Frameworks" },
     { name: "Infrastructure" },
     { name: "Datastores" },
-    { name: "Data Management" }
+    { name: "ML" }
   ],
   rings: [
     { name: "ADOPT", color: "#5ba300" },
