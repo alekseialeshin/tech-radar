@@ -1,0 +1,93 @@
+body {
+  font-family: 'Source Sans Pro', arial, helvetica, sans-serif;
+  padding-bottom: 50px;
+  margin: 0;
+  padding: 20px;
+}
+
+h3 {
+  margin-top: 50px;
+  color: #333;
+}
+
+li {
+  margin: 25px 50px 0 0;
+  line-height: 1.6;
+}
+
+table {
+  width: 1400px;
+  margin: 0 50px 0 50px;
+  max-width: calc(100vw - 100px);
+}
+
+td {
+  width: 50%;
+  vertical-align: top;
+  padding-right: 60px;
+}
+
+.hover-underline {
+  text-decoration: none;
+}
+
+.hover-underline:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 1500px) {
+  table {
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  td {
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+    margin: 0;
+  }
+  
+  td {
+    width: 100%;
+    display: block;
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+  
+  li {
+    margin: 15px 0 0 0;
+  }
+}
+
+/* Radar specific styles */
+.radar-legend {
+  font-family: 'Arial, Helvetica';
+  font-size: 11px;
+}
+
+.radar-title {
+  font-family: 'Arial, Helvetica';
+  font-size: 34px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.radar-quadrant-title {
+  font-family: 'Arial, Helvetica';
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Ring descriptions table */
+.radar-table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  font-family: 'Source Sans Pro', arial, helvetica, sans-serif;
+}

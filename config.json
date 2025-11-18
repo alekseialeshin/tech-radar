@@ -1,0 +1,271 @@
+{
+  "date": "2025.01",
+  "entries": [
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "label": "JavaScript",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "label": "TypeScript",
+      "active": true,
+      "moved": 1
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "label": "Python",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 0,
+      "ring": 1,
+      "label": "React",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 0,
+      "ring": 1,
+      "label": "Vue.js",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 0,
+      "ring": 1,
+      "label": "Next.js",
+      "active": true,
+      "moved": 1
+    },
+    {
+      "quadrant": 0,
+      "ring": 2,
+      "label": "Svelte",
+      "active": true,
+      "moved": 2
+    },
+    {
+      "quadrant": 0,
+      "ring": 2,
+      "label": "Rust",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 0,
+      "ring": 3,
+      "label": "PHP",
+      "active": true,
+      "moved": -1
+    },
+    {
+      "quadrant": 0,
+      "ring": 3,
+      "label": "jQuery",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "label": "Docker",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "label": "Kubernetes",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "label": "AWS",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 1,
+      "ring": 1,
+      "label": "GitHub Actions",
+      "active": true,
+      "moved": 1
+    },
+    {
+      "quadrant": 1,
+      "ring": 1,
+      "label": "Terraform",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 1,
+      "ring": 1,
+      "label": "Vercel",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 1,
+      "ring": 2,
+      "label": "CloudFlare Workers",
+      "active": true,
+      "moved": 2
+    },
+    {
+      "quadrant": 1,
+      "ring": 2,
+      "label": "Deno Deploy",
+      "active": true,
+      "moved": 2
+    },
+    {
+      "quadrant": 1,
+      "ring": 3,
+      "label": "Apache Server",
+      "active": true,
+      "moved": -1
+    },
+    {
+      "quadrant": 1,
+      "ring": 3,
+      "label": "FTP",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "label": "PostgreSQL",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "label": "Redis",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 2,
+      "ring": 1,
+      "label": "MongoDB",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 2,
+      "ring": 1,
+      "label": "Elasticsearch",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 2,
+      "ring": 1,
+      "label": "DynamoDB",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 2,
+      "ring": 2,
+      "label": "Supabase",
+      "active": true,
+      "moved": 2
+    },
+    {
+      "quadrant": 2,
+      "ring": 2,
+      "label": "PlanetScale",
+      "active": true,
+      "moved": 1
+    },
+    {
+      "quadrant": 2,
+      "ring": 3,
+      "label": "MySQL",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 2,
+      "ring": 3,
+      "label": "Oracle DB",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "label": "Apache Airflow",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "label": "Spark",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 3,
+      "ring": 1,
+      "label": "Kafka",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 3,
+      "ring": 1,
+      "label": "dbt",
+      "active": true,
+      "moved": 1
+    },
+    {
+      "quadrant": 3,
+      "ring": 1,
+      "label": "Apache Flink",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 3,
+      "ring": 2,
+      "label": "Snowflake",
+      "active": true,
+      "moved": 2
+    },
+    {
+      "quadrant": 3,
+      "ring": 2,
+      "label": "BigQuery",
+      "active": true,
+      "moved": 0
+    },
+    {
+      "quadrant": 3,
+      "ring": 3,
+      "label": "Hadoop",
+      "active": true,
+      "moved": -1
+    },
+    {
+      "quadrant": 3,
+      "ring": 3,
+      "label": "MapReduce",
+      "active": true,
+      "moved": 0
+    }
+  ]
+}
