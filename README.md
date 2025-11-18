@@ -18,7 +18,7 @@ That's it!
 - Languages & Frameworks
 - Infrastructure  
 - Datastores
-- Data Management
+- ML
 
 **4 Rings** (adoption level):
 - **ADOPT** (center) — Proven at scale, use with confidence
@@ -59,7 +59,7 @@ const CONFIG = {
 - `0` = Languages & Frameworks
 - `1` = Infrastructure
 - `2` = Datastores
-- `3` = Data Management
+- `3` = ML
 
 **ring values:**
 - `0` = ADOPT
