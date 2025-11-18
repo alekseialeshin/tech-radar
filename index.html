@@ -1,49 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-<meta name="description" content="Tech Radar: a tool to visualize technology choices, inspire and support Engineering teams to pick the best technologies for new projects">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>YIM Tech Radar</title>
-<link rel="shortcut icon" href="favicon.ico">
-
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="radar.js"></script>
-
-<link rel="stylesheet" href="radar.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tech Radar</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="radar.js"></script>
+  <link rel="stylesheet" href="radar.css">
 </head>
-
 <body>
 
 <svg id="radar"></svg>
 
 <script>
-fetch('./config.json').then(function(response) {
-  return response.json();
-}).then(function(data) {
-  radar_visualization({
-    repo_url: "#",
-    title: "YIM Tech Radar",
-    date: data.date,
-    quadrants: [
-      { name: "Languages & Frameworks" },
-      { name: "Infrastructure" },
-      { name: "Datastores" },
-      { name: "Data Management" },
-    ],
-    rings: [
-      { name: "ADOPT", color: "#5ba300", description: "Technologies we have high confidence in to serve our purpose, also in large scale." },
-      { name: "TRIAL", color: "#009eb0", description: "Technologies that we have seen work with success in project work to solve a real problem." },
-      { name: "ASSESS", color: "#c7ba00", description: "Technologies that are promising and have clear potential value-add for us." },
-      { name: "HOLD", color: "#e09b96", description: "Technologies not recommended to be used for new projects." }
-    ],
-    print_layout: true,
-    links_in_new_tabs: true,
-    entries: data.entries
-  });
-}).catch(function(err) {
-  console.log('Error loading config.json', err);
+// ========================================
+// EASY UPDATE SECTION - Edit config below
+// ========================================
+
+const CONFIG = {
+  title: "YIM Tech Radar",
+  date: "2025.01",
+  
+  // To add a technology, copy an entry and modify:
+  // quadrant: 0=Languages/Frameworks, 1=Infrastructure, 2=Datastores, 3=Data Management
+  // ring: 0=ADOPT, 1=TRIAL, 2=ASSESS, 3=HOLD
+  // moved: 0=no change, 1=moved in, -1=moved out, 2=new
+  entries: [
+    // Languages & Frameworks (quadrant: 0)
+    { quadrant: 0, ring: 0, label: "JavaScript", active: true, moved: 0 },
+    { quadrant: 0, ring: 0, label: "TypeScript", active: true, moved: 1 },
+    { quadrant: 0, ring: 0, label: "Python", active: true, moved: 0 },
+    { quadrant: 0, ring: 1, label: "React", active: true, moved: 0 },
+    { quadrant: 0, ring: 1, label: "Vue.js", active: true, moved: 0 },
+    { quadrant: 0, ring: 1, label: "Next.js", active: true, moved: 1 },
+    { quadrant: 0, ring: 2, label: "Svelte", active: true, moved: 2 },
+    { quadrant: 0, ring: 2, label: "Rust", active: true, moved: 0 },
+    { quadrant: 0, ring: 3, label: "PHP", active: true, moved: -1 },
+    { quadrant: 0, ring: 3, label: "jQuery", active: true, moved: 0 },
+    
+    // Infrastructure (quadrant: 1)
+    { quadrant: 1, ring: 0, label: "Docker", active: true, moved: 0 },
+    { quadrant: 1, ring: 0, label: "Kubernetes", active: true, moved: 0 },
+    { quadrant: 1, ring: 0, label: "AWS", active: true, moved: 0 },
+    { quadrant: 1, ring: 1, label: "GitHub Actions", active: true, moved: 1 },
+    { quadrant: 1, ring: 1, label: "Terraform", active: true, moved: 0 },
+    { quadrant: 1, ring: 1, label: "Vercel", active: true, moved: 0 },
+    { quadrant: 1, ring: 2, label: "CloudFlare Workers", active: true, moved: 2 },
+    { quadrant: 1, ring: 2, label: "Deno Deploy", active: true, moved: 2 },
+    { quadrant: 1, ring: 3, label: "Apache Server", active: true, moved: -1 },
+    { quadrant: 1, ring: 3, label: "FTP", active: true, moved: 0 },
+    
+    // Datastores (quadrant: 2)
+    { quadrant: 2, ring: 0, label: "PostgreSQL", active: true, moved: 0 },
+    { quadrant: 2, ring: 0, label: "Redis", active: true, moved: 0 },
+    { quadrant: 2, ring: 1, label: "MongoDB", active: true, moved: 0 },
+    { quadrant: 2, ring: 1, label: "Elasticsearch", active: true, moved: 0 },
+    { quadrant: 2, ring: 1, label: "DynamoDB", active: true, moved: 0 },
+    { quadrant: 2, ring: 2, label: "Supabase", active: true, moved: 2 },
+    { quadrant: 2, ring: 2, label: "PlanetScale", active: true, moved: 1 },
+    { quadrant: 2, ring: 3, label: "MySQL", active: true, moved: 0 },
+    { quadrant: 2, ring: 3, label: "Oracle DB", active: true, moved: 0 },
+    
+    // Data Management (quadrant: 3)
+    { quadrant: 3, ring: 0, label: "Apache Airflow", active: true, moved: 0 },
+    { quadrant: 3, ring: 0, label: "Spark", active: true, moved: 0 },
+    { quadrant: 3, ring: 1, label: "Kafka", active: true, moved: 0 },
+    { quadrant: 3, ring: 1, label: "dbt", active: true, moved: 1 },
+    { quadrant: 3, ring: 1, label: "Apache Flink", active: true, moved: 0 },
+    { quadrant: 3, ring: 2, label: "Snowflake", active: true, moved: 2 },
+    { quadrant: 3, ring: 2, label: "BigQuery", active: true, moved: 0 },
+    { quadrant: 3, ring: 3, label: "Hadoop", active: true, moved: -1 },
+    { quadrant: 3, ring: 3, label: "MapReduce", active: true, moved: 0 }
+  ]
+};
+
+// ========================================
+// Render the radar
+// ========================================
+radar_visualization({
+  title: CONFIG.title,
+  date: CONFIG.date,
+  entries: CONFIG.entries,
+  quadrants: [
+    { name: "Languages & Frameworks" },
+    { name: "Infrastructure" },
+    { name: "Datastores" },
+    { name: "Data Management" }
+  ],
+  rings: [
+    { name: "ADOPT", color: "#5ba300" },
+    { name: "TRIAL", color: "#009eb0" },
+    { name: "ASSESS", color: "#c7ba00" },
+    { name: "HOLD", color: "#e09b96" }
+  ],
+  print_layout: true,
+  links_in_new_tabs: true
 });
 </script>
 

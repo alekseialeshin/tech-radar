@@ -1,193 +1,127 @@
-# YIM Tech Radar
+# Tech Radar
 
-A powerful tool to visualize technology choices, inspire and support Engineering teams to pick the best technologies for new projects.
+A simple, visual tool to track your team's technology choices.
 
-Based on the excellent work by [Zalando Tech Radar](https://github.com/zalando/tech-radar) and inspired by the [ThoughtWorks Technology Radar](https://www.thoughtworks.com/radar).
+Based on [Zalando Tech Radar](https://github.com/zalando/tech-radar) and inspired by [ThoughtWorks](https://www.thoughtworks.com/radar).
 
 ## Quick Start
 
-1. Open `index.html` in your web browser
-2. Edit `config.json` to add/remove/update technologies
-3. Refresh the page to see your changes
+1. Open `index.html` in a browser
+2. Edit the `CONFIG` object in `index.html` to update technologies
+3. Refresh to see changes
 
-## How it works
+That's it!
 
-The radar is divided into four **quadrants**:
+## How It Works
 
-- **Languages & Frameworks** (top right)
-- **Infrastructure** (top left)
-- **Datastores** (bottom left) 
-- **Data Management** (bottom right)
+**4 Quadrants** (categories):
+- Languages & Frameworks
+- Infrastructure  
+- Datastores
+- Data Management
 
-Each technology is placed in one of four **rings**:
+**4 Rings** (adoption level):
+- **ADOPT** (center) — Proven at scale, use with confidence
+- **TRIAL** — Successful in projects, worth using
+- **ASSESS** — Worth exploring for potential value
+- **HOLD** (outer) — Not recommended for new projects
 
-- **ADOPT** (center) — Technologies we have high confidence in, proven at scale
-- **TRIAL** — Technologies we've seen work successfully in projects 
-- **ASSESS** — Technologies worth investigating for potential value
-- **HOLD** (outer ring) — Technologies not recommended for new projects
+**Movement Indicators**:
+- ⬤ No change
+- ▲ Moved inward (more favorable)
+- ▼ Moved outward (less favorable)
+- ★ New entry
 
-## Visual Indicators
+## Updating Technologies
 
-- **⬤** No change from last update
-- **▲** Moved inward (more favorable)
-- **▼** Moved outward (less favorable) 
-- **★** New to the radar
+Open `index.html` and edit the `CONFIG` object:
 
-## Editing the Radar
-
-### Adding a New Technology
-
-Edit `config.json` and add an entry like this:
-
-```json
-{
-  "quadrant": 0,
-  "ring": 1, 
-  "label": "New Technology",
-  "active": true,
-  "moved": 2,
-  "link": "https://example.com"
-}
+```javascript
+const CONFIG = {
+  title: "Your Tech Radar",
+  date: "2025.02",
+  entries: [
+    {
+      quadrant: 0,  // 0=Languages, 1=Infrastructure, 2=Datastores, 3=Data
+      ring: 1,      // 0=ADOPT, 1=TRIAL, 2=ASSESS, 3=HOLD
+      label: "React",
+      active: true,
+      moved: 0      // 0=no change, 1=in, -1=out, 2=new
+    },
+    // ... add more entries
+  ]
+};
 ```
 
-### Configuration Parameters
+### Quick Reference
 
-**quadrant** (required): Which section of the radar
+**quadrant values:**
 - `0` = Languages & Frameworks
-- `1` = Infrastructure  
+- `1` = Infrastructure
 - `2` = Datastores
 - `3` = Data Management
 
-**ring** (required): Which ring/level
+**ring values:**
 - `0` = ADOPT
 - `1` = TRIAL
-- `2` = ASSESS  
+- `2` = ASSESS
 - `3` = HOLD
 
-**label** (required): Name of the technology
-
-**active** (required): Set to `true` for normal display
-
-**moved** (required): Movement indicator
+**moved values:**
 - `0` = No change (⬤)
-- `1` = Moved up/inward (▲)
-- `-1` = Moved down/outward (▼)
+- `1` = Moved inward (▲)
+- `-1` = Moved outward (▼)
 - `2` = New entry (★)
-
-**link** (optional): URL for more information
-
-### Example Entries
-
-```json
-{
-  "quadrant": 0,
-  "ring": 0,
-  "label": "React", 
-  "active": true,
-  "moved": 0,
-  "link": "https://reactjs.org"
-}
-```
-
-### Updating the Date
-
-Change the `date` field at the top of `config.json`:
-
-```json
-{
-  "date": "2025.02",
-  "entries": [...]
-}
-```
 
 ## Customization
 
-### Changing Colors
+All customization happens in `index.html`:
 
-Edit the radar visualization in `index.html`:
-
+**Change colors:**
 ```javascript
 rings: [
   { name: "ADOPT", color: "#5ba300" },
-  { name: "TRIAL", color: "#009eb0" }, 
+  { name: "TRIAL", color: "#009eb0" },
   { name: "ASSESS", color: "#c7ba00" },
   { name: "HOLD", color: "#e09b96" }
 ]
 ```
 
-### Changing Quadrant Names
-
+**Rename quadrants:**
 ```javascript
 quadrants: [
-  { name: "Languages & Frameworks" },
-  { name: "Infrastructure" },
-  { name: "Datastores" },
-  { name: "Data Management" }
+  { name: "Your Custom Name" },
+  // ...
 ]
 ```
 
-### Changing Title
+## Files
 
-```javascript
-radar_visualization({
-  title: "Your Company Tech Radar",
-  // ... other config
-});
-```
+- `index.html` — **Edit this file to update your radar**
+- `radar.js` — Visualization engine (no need to edit)
+- `radar.css` — Minimal styling (no need to edit)
+- `config.json` — *(No longer used - can be deleted)*
 
-## File Structure
+## Deployment
 
-```
-/
-├── index.html      # Main page
-├── radar.js        # Visualization engine  
-├── radar.css       # Styling
-├── config.json     # Technology data
-└── README.md       # This file
-```
+**GitHub Pages:**
+1. Push to GitHub
+2. Enable Pages in repo settings
+3. Access at `https://username.github.io/repo-name`
 
-## Hosting
+**Any static host:**
+Upload all files to Vercel, Netlify, etc.
 
-### GitHub Pages
-1. Push to a GitHub repository
-2. Enable GitHub Pages in repository settings
-3. Access at `https://yourusername.github.io/yourrepo`
+**Local:**
+Just open `index.html` in any browser
 
-### Local Development
-Simply open `index.html` in any modern web browser.
+## Tips
 
-### Static Hosting
-Upload all files to any static web hosting service (Vercel, Netlify, etc.)
-
-## Tips for Effective Use
-
-1. **Regular Updates**: Review and update quarterly
-2. **Team Input**: Gather feedback from multiple team members
-3. **Document Decisions**: Use the links to explain why technologies are in specific rings
-4. **Version Control**: Track changes over time with git
-5. **Clear Criteria**: Define what qualifies for each ring in your organization
-
-## Troubleshooting
-
-### Radar not displaying
-- Check browser console for JavaScript errors
-- Ensure `config.json` is valid JSON
-- Make sure all required fields are present
-
-### Technologies not positioned correctly
-- Verify quadrant values are 0-3
-- Check ring values are 0-3
-- Ensure moved values are valid (-1, 0, 1, or 2)
+- Update quarterly with your team
+- Keep entries organized by category
+- Use links field to add documentation URLs
+- Track changes over time with git
 
 ## License
 
-Based on the MIT-licensed Zalando Tech Radar. See original project for full license details.
-
-## Contributing
-
-1. Fork the repository
-2. Make your changes
-3. Test thoroughly
-4. Submit a pull request
-
-For questions or suggestions, please open an issue in the repository.
+MIT License (based on Zalando Tech Radar)
